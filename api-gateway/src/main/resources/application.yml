@@ -1,0 +1,14 @@
+server:
+  port: 1082
+spring:
+  cloud:
+    gateway:
+      routes[0]:
+        id: users-status-check
+        uri: http://localhost:9191
+        predicates[0]: Path=/users/status/check
+        predicates[1]: Method=GET
+        filter[0]: RemoveRequestHeader=Cookie
+
+                    
+        
