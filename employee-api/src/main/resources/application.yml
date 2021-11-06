@@ -1,6 +1,14 @@
 server:
   port: 9093
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8670/eureka      
+
+
 spring:
+  application:
+    name: employee-api
   security:
     oauth2:
       resourceserver:

@@ -1,6 +1,12 @@
 server:
   port: 1082
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8670/eureka            
+
 spring:
+  application:    name: api-gateway
   cloud:
     gateway:
       routes[0]:
