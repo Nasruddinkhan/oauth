@@ -21,7 +21,7 @@ public class JwtConverter implements Converter<Jwt, Collection<GrantedAuthority>
 	public Collection<GrantedAuthority> convert(Jwt jwt) {
 		// TODO Auto-generated method stub
 		Map<String, Object> realmAcess = jwt.getClaim("realm_access");
-		System.out.println("departments ["+realmAcess+"]");
+		System.out.println("employees ["+realmAcess+"]");
 		if(Objects.isNull(realmAcess) || realmAcess.isEmpty())
 			return new ArrayList<>();
 	 	return ((List<String>) realmAcess.get("roles"))
