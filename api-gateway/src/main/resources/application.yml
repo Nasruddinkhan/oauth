@@ -11,19 +11,21 @@ spring:
     gateway:
       routes[0]:
         id: users-status-check
-        uri: http://localhost:9191
+        #uri: http://localhost:9191
+        uri: lb://resource-api
         predicates[0]: Path=/users/status/check
         predicates[1]: Method=GET
         filter[0]: RemoveRequestHeader=Cookie
       routes[1]:
         id: department-all
-        uri: http://localhost:9192
+        uri: lb://department-api
         predicates[0]: Path=/department/all
         predicates[1]: Method=GET
         filter[1]: RemoveRequestHeader=Cookie
       routes[2]:
         id: employee-all
-        uri: http://localhost:9093
+        #uri: http://localhost:9093
+        uri: lb://employee-api
         predicates[0]: Path=/employee/all
         predicates[1]: Method=GET
         filter[1]: RemoveRequestHeader=Cookie

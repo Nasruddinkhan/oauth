@@ -9,4 +9,5 @@ import lombok.Data;
 public class DepartmentDto {
 	private String departmentId;
 	private String departmentName;
+	private String port;
 }
