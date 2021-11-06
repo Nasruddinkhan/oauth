@@ -1,9 +1,14 @@
 server:
   port: 9192
 spring:
+  application:
+    name: department-api
   security:
     oauth2:
       resourceserver:
         jwt:
           jwk-set-uri:  http://127.0.0.1:16199/auth/realms/appsdevelopersblog/protocol/openid-connect/certs
-
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8670/eureka
