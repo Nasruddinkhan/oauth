@@ -21,6 +21,5 @@ spring:
         predicates[0]: Path=/employee/all
         predicates[1]: Method=GET
         filter[1]: RemoveRequestHeader=Cookie
-
-                    
+          
         
