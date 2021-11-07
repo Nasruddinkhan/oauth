@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import com.mypractice.api.client.dto.DepartmentDto;
 
@@ -32,6 +33,9 @@ public class ApiController {
 	
 	@Autowired
 	RestTemplate restTemplate;
+	
+	@Autowired
+	WebClient webClient;
 	
 	@GetMapping("/department")
 	public String findAllDepartments(Model model, @AuthenticationPrincipal OidcUser oidcUser) {
@@ -79,4 +83,17 @@ public class ApiController {
 		return "department";
 	}
 	
+	@GetMapping("/department/webClient")
+	public String getAlbums(Model model, 
+			@AuthenticationPrincipal OidcUser principal) {
+		
+		String url = "http://localhost:1082/department/all";
+		List<DepartmentDto> department = webClient.get()
+				.uri(url)
+				.retrieve()
+				.bodyToMono(new ParameterizedTypeReference<List<DepartmentDto>>(){})
+				.block();
+        model.addAttribute("department", department);
+		return "department";
+	}
 }
