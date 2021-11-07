@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>department details</h1>
+	<table border="1" cellpadding="2" cellspacing="0">
+		<thead>
+			<tr>
+				<th>Department Id</th>
+				<th>Department Name</th>
+				<th>Port</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="dept: ${department}">
+				<td th:text="${dept.departmentId}" />
+				<td th:text="${dept.departmentName}" />
+				<td th:text="${dept.port}" />
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
