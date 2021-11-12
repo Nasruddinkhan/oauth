@@ -1,0 +1,25 @@
+build2
+node_modules
+dist
+npm-debug.log
+travis_phantomjs
+.DS_Store
+.vscode
+
+public
+
+# Intellij
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Maven
+.classpath
+.project
+.settings
+target
+lib/src/main/resources/public/assets
+okta-hosted-login/src/test/resources/build2
+okta-hosted-login/src/test/resources/node_modules
+okta-hosted-login/src/test/resources/e2e-tests
